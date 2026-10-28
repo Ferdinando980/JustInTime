@@ -2,15 +2,32 @@
 
 <h1 align="center">JustInTime</h1>
 
-<p align="center">Un gioco di carte a turni per due-quattro giocatori, sviluppato come progetto universitario di gruppo.</p>
+<p align="center">Un progetto universitario di gruppo: la documentazione completa di un gioco di carte a turni per due-quattro giocatori e l'applicazione Java realizzata a partire da essa.</p>
 
 <p align="center"><a href="README.md">English</a> · <b>Italiano</b></p>
 
 ## Il progetto
 
-JustInTime è un gioco web in cui si gioca contro il tempo. Ogni turno ha un timer, ogni carta giocata può cambiare il tempo del giocatore successivo e vince chi resta per primo senza carte in mano. L'ha realizzato un gruppo universitario di quattro persone, dai documenti dei requisiti fino a un'applicazione Java funzionante, con account, partite, classifiche e obiettivi.
+JustInTime è un gioco web in cui si gioca contro il tempo. Ogni turno ha un timer, ogni carta giocata può cambiare il tempo del giocatore successivo e vince chi resta per primo senza carte in mano. L'ha realizzato un gruppo universitario di quattro persone, dai requisiti fino a un'applicazione Java funzionante, con account, partite, classifiche e obiettivi.
+
+> **La documentazione è la parte più importante del progetto.** Il cuore del lavoro è stato scriverla: analizzare il problema, progettare il sistema e gli oggetti, pianificare il lavoro e tracciare i requisiti. L'applicazione è l'implementazione di quel progetto, non il contrario. Conviene partire dai documenti nella cartella [`Documentazione`](Documentazione) e leggere il codice dopo.
 
 Questo è un fork del [repository originale](https://github.com/LimeMoss/Progetto-JustInTime), reso pubblico come testimonianza del lavoro svolto. È un progetto accademico, non un gioco in produzione, e non è presentato come lavoro individuale.
+
+## La documentazione
+
+Tutti i documenti sono nella cartella [`Documentazione`](Documentazione) e sono scritti in italiano.
+
+| Documento | Dimensione | Che cosa contiene |
+|---|---|---|
+| [Statement of Work](Documentazione/Statement%20of%20work.pdf) | 12 pagine | date di inizio e fine, consegne, requisiti funzionali e non funzionali |
+| [Requirements Analysis Document (RAD)](Documentazione/RAD.pdf) | 65 pagine | sistema attuale e proposto, requisiti funzionali e non funzionali (usabilità, affidabilità, prestazioni, supportabilità, implementazione, interfacce, operation, packaging, aspetti legali), scenari, modello dei casi d'uso, modello a oggetti, modello dinamico (activity, sequence e statechart diagram), percorsi di navigazione e mock-up |
+| [System Design Document (SDD)](Documentazione/SDD.pdf) | 26 pagine | decomposizione in sottosistemi, gestione dei dati persistenti, controllo degli accessi e sicurezza, controllo globale del software, condizioni limite, servizi di ogni sottosistema |
+| [Object Design Document (ODD)](Documentazione/ODD.pdf) | 7 pagine | i design pattern usati, Bridge, Factory e State, ciascuno con il punto in cui compare nel progetto |
+| [Matrice di tracciabilità](Documentazione/Testing_docs/Matrice%20di%20tracciabilit%C3%A0.xlsx) | foglio di calcolo | la matrice di tracciabilità, in `Testing_docs` |
+| [Registro del lavoro](Documentazione/Work%20done.xlsx) | foglio di calcolo | il resoconto del lavoro svolto dal gruppo |
+
+Un buon ordine di lettura è lo Statement of Work, poi RAD, SDD e ODD, e infine il codice, dove si ritrova ciascun pattern descritto nell'ODD.
 
 ## Come funziona una partita
 
@@ -20,7 +37,7 @@ Questo è un fork del [repository originale](https://github.com/LimeMoss/Progett
 - Le carte speciali si giocano al posto di una numerata: **Accelera** toglie due secondi al turno del giocatore successivo, **Rallenta** aggiunge due secondi al turno di chi la ottiene, **Jolly** vale la carta in cima più uno.
 - Chi finisce il tempo viene escluso, ma la partita continua. La partita finisce quando qualcuno resta senza carte e la classifica segue il numero di carte rimaste in mano.
 
-## Funzioni principali
+## Funzioni principali dell'applicazione
 
 - registrazione, accesso, pagina del profilo e modifica o eliminazione dell'account;
 - partite con una pagina di preparazione, turni a tempo, ordine di gioco e carte speciali;
@@ -31,9 +48,7 @@ Questo è un fork del [repository originale](https://github.com/LimeMoss/Progett
 
 ## Architettura
 
-L'applicazione è un progetto web Spring Boot organizzato a livelli. I controller gestiscono le rotte e la sessione, i servizi contengono la logica di gioco, i repository Spring Data JPA parlano con MySQL e i template Thymeleaf generano le pagine. La partita vive nel modello: una `Partita` possiede i giocatori e due mazzi (pesca e scarto, creati tramite una factory), e il suo andamento è gestito da classi di stato separate per l'avvio, i turni, la pausa e la fine del gioco.
-
-La documentazione di progetto è nella cartella `Documentazione`: documento di analisi dei requisiti (RAD), di progettazione del sistema (SDD) e degli oggetti (ODD), statement of work, un registro del lavoro svolto e una matrice di tracciabilità.
+L'applicazione è un progetto web Spring Boot organizzato a livelli. I controller gestiscono le rotte e la sessione, i servizi contengono la logica di gioco, i repository Spring Data JPA parlano con MySQL e i template Thymeleaf generano le pagine. La partita vive nel modello: una `Partita` possiede i giocatori e due mazzi (pesca e scarto, creati tramite una factory), e il suo andamento è gestito da classi di stato separate per l'avvio, i turni, la pausa e la fine del gioco. I pattern sono spiegati nell'ODD.
 
 ## Avvio in locale
 
@@ -57,7 +72,7 @@ Il repository originale appartiene a [@LimeMoss](https://github.com/LimeMoss). D
 
 ## Contesto accademico
 
-Sviluppato come progetto universitario di gruppo. I documenti consegnati per il corso sono in `Documentazione`, e il codice è una fotografia del lavoro com'era a fine corso, non una demo riscritta per il portfolio.
+Sviluppato come progetto universitario di gruppo. Le consegne del corso sono i documenti elencati sopra, e il codice è una fotografia del lavoro com'era a fine corso, non una demo riscritta per il portfolio.
 
 ## Licenza
 
