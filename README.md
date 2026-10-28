@@ -37,9 +37,10 @@ The project documentation is in the `Documentazione` folder: requirements analys
 
 ## Run locally
 
-The project targets Java 23, Maven and a local MySQL server. The `justintime` database is created on first start; set your own MySQL user and password in `src/main/resources/application.properties` before running.
+The project targets Java 23, Maven and a local MySQL server. The `justintime` database is created on first start. The MySQL credentials are read from the `DB_USERNAME` (default `root`) and `DB_PASSWORD` environment variables, so set them before running.
 
 ```sh
+export DB_PASSWORD="your-mysql-password"
 cd "ProgettoIs JustInTime"
 ./mvnw spring-boot:run
 ```
